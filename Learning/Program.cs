@@ -7,7 +7,7 @@ namespace Learning
     {
         static void Main(string[] args)
         {
-            Zad7(args);
+            Console.WriteLine(Zad10(0.5));
         }
         static void Zad1(string[] args)
         {
@@ -61,7 +61,17 @@ namespace Learning
             int c = int.Parse(Console.ReadLine());
             Console.WriteLine((Math.Pow((Math.Pow(a + b, 2)), 1 / 3.0)) / (Math.Log(c)));
         }
-        //С 5-ой задачей 1-го задания возникли некоторые проблемы.  Хотелось бы их разобрать на следующем занятии
+        static void Zad5(string[] args)
+        {
+           for(int i = 0; i > 50; i++)
+            {
+                int a = 2;
+                double q = 0.9;
+                Console.WriteLine(a*Math.Pow(q,i));
+                //также возможен вариант Console.WriteLine(2*Math.Pow(0.9,i));
+            }
+        }
+        
         static void Zad6(string[] args)
         {
            int a = int.Parse(Console.ReadLine());
@@ -120,6 +130,46 @@ namespace Learning
             }
             
         }
-        //С задачами 4 и 5 задания 2 возникли трудности. Хотелось бы их разобрать на следующем занятии
+        static void Zad9(string[] args)
+        {
+            double a = 0;
+            double sum = 0;
+            for (int i = 1; i <= 50; i++)
+            {
+                a = (2 * i - 1) / Math.Pow(2, i);
+                if (i % 2 == 0 || i==1)
+                {
+                    sum += a;
+                }
+                else
+                {
+                    sum -= a;
+                }
+                Console.WriteLine(sum);
+            }
+        }
+        static double Zad10(double a)
+        {
+            double cosx = 0;
+           for(int i = 1; i <= 100; i++)
+            {
+                double cosxlast = cosx;
+                cosx += Math.Round(Math.Pow(-1, i) * Math.Pow(a, 2 * i) / Factorial(2 * i), 10);
+                if (cosx == cosxlast)
+                {
+                    break;
+                }
+            }
+            return cosx;
+        }
+        static long Factorial(int f)
+        {
+            long sum = 1;
+            for(int i=f; i > 0; i--)
+            {
+               sum *= i;
+            }
+            return sum;
+        }
     }
 }
