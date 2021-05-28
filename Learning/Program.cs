@@ -85,7 +85,6 @@ namespace Learning
         static bool Zad7(string[] args)
         {
             Random rnd = new Random();
-            bool prost = true;
             int n = rnd.Next();
             if (Prost(n) == true)
             {
@@ -110,25 +109,13 @@ namespace Learning
             int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
             Random rnd = new Random();
-            bool prost = true;
             int n = rnd.Next(a,b);
-            for (int i = 2; i <= n / 2; i++)
+            if (Prost(n) == true)
             {
-                if (n % i == 0)
-                {
-                    prost = false;
-                    break;
-                }
+                return true;
             }
-            if (prost)
-            {
-                return (true);
-            }
-            else
-            {
-                return (false);
-            }
-            
+            return false;
+
         }
         static void Zad9(string[] args)
         {
