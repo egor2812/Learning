@@ -7,7 +7,7 @@ namespace Learning
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Zad10(0.5));
+            Console.WriteLine(Prost(10));
         }
         static void Zad1(string[] args)
         {
@@ -87,23 +87,23 @@ namespace Learning
             Random rnd = new Random();
             bool prost = true;
             int n = rnd.Next();
+            if (Prost(n) == true)
+            {
+                return true;
+            }
+            return false;
+           
+        }
+        static bool Prost(int n)
+        {
             for (int i = 2; i <= n / 2; i++)
             {
                 if (n % i == 0)
                 {
-                    prost = false;
-                    break;
+                    return false;
                 }
             }
-            if (prost)
-            {
-                return(true);
-            }
-            else
-            {
-                return(false);
-            }
-           
+            return true;
         }
         static bool Zad8(string[] args)
         {
@@ -154,7 +154,7 @@ namespace Learning
            for(int i = 1; i <= 100; i++)
             {
                 double cosxlast = cosx;
-                cosx += Math.Round(Math.Pow(-1, i) * Math.Pow(a, 2 * i) / Factorial(2 * i), 10);
+                cosx += Math.Round(Math.Pow(-1, i) * Math.Pow(a, 2 * i) / Factorial(2 * i), 32);
                 if (cosx == cosxlast)
                 {
                     break;
