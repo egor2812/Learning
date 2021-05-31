@@ -7,7 +7,7 @@ namespace Learning
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Prost(10));
+            Zad2(args);
         }
         static void Zad1(string[] args)
         {
@@ -27,26 +27,10 @@ namespace Learning
         }
         static void Zad2(string[] args)
         {
-            bool p = true;
             Console.WriteLine("Введите число");
-            int n = int.Parse(Console.ReadLine());
-            for (int i = 2; i <= n / 2; i++)
-            {
-                if (n % i == 0)
-                {
-                    p = false;
-                    break;
-                }
-            }
-            if (p)
-            {
-                Console.WriteLine("Число простое");
-            }
-            else
-            {
-                Console.WriteLine("Число не простое");
-            }
-            Console.ReadKey();
+            if (Prime(int.Parse(Console.ReadLine()))) Console.WriteLine("Число простое");
+            else Console.WriteLine("Число не простое");
+
         }
         static void Zad3(string[] args)
         {
@@ -86,31 +70,21 @@ namespace Learning
         {
             Random rnd = new Random();
             int n = rnd.Next();
-            if (Prost(n) == true)
+            if (Prime(n) == true)
             {
                 return true;
             }
             return false;
            
         }
-        static bool Prost(int n)
-        {
-            for (int i = 2; i <= n / 2; i++)
-            {
-                if (n % i == 0)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+       
         static bool Zad8(string[] args)
         {
             int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
             Random rnd = new Random();
             int n = rnd.Next(a,b);
-            if (Prost(n) == true)
+            if (Prime(n) == true)
             {
                 return true;
             }
@@ -157,6 +131,17 @@ namespace Learning
                sum *= i;
             }
             return sum;
+        }
+        static bool Prime(int n)
+        {
+            for (int i = 2; i <= n/2; i++)
+            {
+                if (n % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
